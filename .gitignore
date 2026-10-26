@@ -1,0 +1,58 @@
+# ==========================================
+# TUYỆT ĐỐI CHẶN DATASET & DỮ LIỆU BỆNH NHÂN
+# ==========================================
+data/
+**/data/
+csv_data/
+**/csv_data/
+
+# Định dạng dữ liệu bảng & ảnh y tế
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.rda
+*.rdata
+*.tar.gz
+*.zip
+*.7z
+*.rar
+*.nii
+*.nii.gz
+*.dcm
+*.h5
+*.hdf5
+*.parquet
+*.feather
+
+# Model weights & Checkpoints dung lượng lớn
+results/checkpoints/
+**/results/checkpoints/
+*.pt
+*.pth
+*.pkl
+*.pickle
+*.joblib
+*.onnx
+*.bin
+
+# Log & Cache
+*.log
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Môi trường ảo (Virtual Environments)
+venv/
+.venv/
+env/
+.env
+
+# IDE & Hệ điều hành
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

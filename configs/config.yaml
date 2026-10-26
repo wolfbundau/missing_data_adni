@@ -1,0 +1,51 @@
+# Cấu hình dự án Nghiên cứu Missing Data ADNI
+project:
+  name: "missing_data_adni"
+  version: "1.0.0"
+  random_seed: 42
+
+paths:
+  csv_raw_dir: "./csv_data"
+  data_processed_dir: "./data/processed"
+  data_simulated_dir: "./data/simulated"
+  results_dir: "./results"
+  figures_dir: "./results/figures"
+  metrics_dir: "./results/metrics"
+
+keys:
+  subject_id: "RID"
+  patient_id: "PTID"
+  visit_code: "VISCODE2"
+  protocol: "COLPROT"
+  exam_date: "EXAMDATE"
+
+target_variables:
+  cognition_scales:
+    - "MMSCORE"
+    - "MOCA"
+    - "CDRSB"
+  diagnosis:
+    column: "DIAGNOSIS"
+    classes: ["CN", "MCI", "Dementia"]
+
+simulation:
+  missing_ratios: [0.1, 0.2, 0.3, 0.4, 0.5]
+  mechanisms:
+    - "MCAR"
+    - "MNAR"
+
+imputation_methods:
+  baselines:
+    - "mean"
+    - "median"
+    - "knn"
+    - "mice"
+    - "missForest"
+  advanced:
+    - "dae"
+
+downstream_models:
+  - "RandomForest"
+  - "SVM"
+  - "LogisticRegression"
+  - "XGBoost"
